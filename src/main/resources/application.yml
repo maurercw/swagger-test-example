@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: swagger-test
+
+springdoc:
+  cache.disabled: true
+  swagger-ui.disable-swagger-default-url: true
+
+---
+
+spring:
+  config:
+    activate.on-profile: swagger-disabled
+springdoc:
+  api-docs.enabled: false
+  swagger-ui.enabled: false
+
+---
+
+spring:
+  config:
+    activate.on-profile: swagger-default
+springdoc:
+  api-docs:
+    enabled: true
+#    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+#    path: /swagger-ui.html
+#    disable-swagger-default-url: true
+#    use-root-path: true
+
+---
+
+spring:
+  config:
+    activate.on-profile: swagger-custom
+springdoc:
+  api-docs:
+    enabled: true
+    path: '/custom/v3/api-docs'
+  swagger-ui:
+    enabled: true
+#    disable-swagger-default-url: true
+#    use-root-path: false
+    path: "/custom/swagger-ui.html"
